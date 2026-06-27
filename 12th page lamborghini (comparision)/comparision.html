@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamborghini Comparison Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #000;
+            background: linear-gradient(145deg, #fff, #f0f0f0);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .selection-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .car-select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #222;
+            border-radius: 5px;
+            background: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .car-details {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .car-details h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .spec-row:hover {
+            background: #f9f9f9;
+        }
+
+        .additional-specs {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .additional-specs.show {
+            display: block;
+        }
+
+        .view-more-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #222;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .view-more-btn:hover {
+            background: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="comparison-header">
+            <h1>Lamborghini Model Comparison</h1>
+        </div>
+
+        <div class="selection-area">
+            <select class="car-select" id="lambo-select">
+                <option value="">Select Lamborghini Model</option>
+                <option value="aventador">Lamborghini Aventador</option>
+                <option value="revuelto">Lamborghini Revuelto</option>
+                <option value="huracan">Lamborghini Huracán</option>
+                <option value="urus">Lamborghini Urus</option>
+            </select>
+
+            <select class="car-select" id="competitor-select">
+                <option value="">Select Competitor</option>
+                <option value="ferrari-sf90">Ferrari SF90 Stradale</option>
+                <option value="porsche-gt3">Porsche 911 GT3 RS</option>
+                <option value="mclaren-720s">McLaren 720S</option>
+            </select>
+        </div>
+
+        <div class="comparison-container">
+            <div class="car-details" id="lambo-details">
+                <h2>Lamborghini Specifications</h2>
+                <div class="basic-specs">
+                    <div class="spec-row">
+                        <span>Engine</span>
+                        <span id="lambo-engine"></span>
+                    </div>
+                    <div class="spec-row">
+                        <span>Power</span>
+                        <span id="lambo-power"></span>
+                    </div>
+                    <div class="spec-row">
+                        <span>Torque</span>
+                        <span id="lambo-torque"></span>
+                    </div>
+                    <div class="spec-row">
+                        <span>Transmission</span>
+                        <span id="lambo-transmission"></span>
+                    </div>
+                </div>
+                <div class="additional-specs" id="lambo-additional">
+                    <div class="spec-row">
+                        <span>Top Speed</span>
+                        <span id="lambo-topspeed"></span>
+                    </div>
+                    <div class="spec-row">
+                        <span>0-100 km/h</span>
+                        <span id="lambo-acceleration"></span>
+                    </div>
+                    <div class="spec-row">
+                        <span>Dimensions (L×W×H)</span>
+                        <span id="lambo-dimensions"></span>
+                    </div>
+                    <div class="spec-row">
+                        <span>Ground Clearance</span>
+                        <span id="lambo-clearance"></span>
+                    </div>
+                    <div class="spec-row">
+                        <span>Fuel Capacity</span>
+                        <span id="lambo-fuel"></span>
+                    </div>
+                </div>
+                <button class="view-more-btn" onclick="toggleSpecs('lambo-additional')">View More</button>
+            </div>
+
+            <div class="car-details" id="competitor-details">
+                <h2>Competitor Specifications</h2>
+                <div class="basic-specs">
+                    <div class="spec-row">
+                        <span>Engine</span>
+                        <span id="comp-engine"></span>
+                    </div>
+                    <div class="spec-row">
+                        <span>Power</span>
+                        <span id="comp-power"></span>
+                    </div>
+                    <div class="spec-row">
+                        <span>Torque</span>
+                        <span id="comp-torque"></span>
+                    </div>
+                    <div class="spec-row">
+                        <span>Transmission</span>
+                        <span id="comp-transmission"></span>
+                    </div>
+                </div>
+                <div class="additional-specs" id="comp-additional">
+                    <div class="spec-row">
+                        <span>Top Speed</span>
+                        <span id="comp-topspeed"></span>
+                    </div>
+                    <div class="spec-row">
+                        <span>0-100 km/h</span>
+                        <span id="comp-acceleration"></span>
+                    </div>
+                    <div class="spec-row">
+                        <span>Dimensions (L×W×H)</span>
+                        <span id="comp-dimensions"></span>
+                    </div>
+                    <div class="spec-row">
+                        <span>Ground Clearance</span>
+                        <span id="comp-clearance"></span>
+                    </div>
+                    <div class="spec-row">
+                        <span>Fuel Capacity</span>
+                        <span id="comp-fuel"></span>
+                    </div>
+                </div>
+                <button class="view-more-btn" onclick="toggleSpecs('comp-additional')">View More</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const carData = {
+            'aventador': {
+                engine: '6.5L V12',
+                power: '759 bhp @ 8500rpm',
+                torque: '720Nm @ 6750rpm',
+                transmission: '7-speed Automatic, AWD',
+                topspeed: '355 kmph',
+                acceleration: '2.8 seconds',
+                dimensions: '4868mm × 2273mm × 1136mm',
+                clearance: '125mm',
+                fuel: '90 Liters'
+            },
+            'revuelto': {
+                engine: '6.5L V12 with Electric Motors',
+                power: '1001 bhp @ 9250rpm',
+                torque: '725Nm @ 6750rpm',
+                transmission: '8-Speed DTC, AWD',
+                topspeed: '350 kmph',
+                acceleration: '2.5 seconds',
+                dimensions: '4947mm × 2266mm × 1160mm',
+                clearance: '128mm',
+                fuel: '83 Liters'
+            },
+            'huracan': {
+                engine: '5.2L V10',
+                power: '631 bhp @ 8000rpm',
+                torque: '600Nm @ 6500rpm',
+                transmission: '7-speed LDF dual-clutch',
+                topspeed: '325 kmph',
+                acceleration: '2.9 seconds',
+                dimensions: '4520mm × 1933mm × 1165mm',
+                clearance: '135mm',
+                fuel: '83 Liters'
+            },
+            'ferrari-sf90': {
+                engine: '3.9L V8 Twin-Turbo Hybrid',
+                power: '769 bhp @ 7500rpm',
+                torque: '800Nm @ 6000rpm',
+                transmission: '8-speed dual-clutch',
+                topspeed: '340 kmph',
+                acceleration: '2.5 seconds',
+                dimensions: '4710mm × 1972mm × 1186mm',
+                clearance: '120mm',
+                fuel: '68 Liters'
+            },
+            'porsche-gt3': {
+                engine: '4.0L 6-cylinder',
+                power: '379.5 bhp @ 6500rpm',
+                torque: '465Nm @ 6300rpm',
+                transmission: '7-speed PDK',
+                topspeed: '293 kmph',
+                acceleration: '3.0 seconds',
+                dimensions: '4572mm × 1900mm × 1322mm',
+                clearance: '115mm',
+                fuel: '64 Liters'
+            },
+            'mclaren-720s': {
+                engine: '4.0L Twin-Turbo V8',
+                power: '711 bhp',
+                torque: '770Nm',
+                transmission: '7-speed SSG',
+                topspeed: '341 kmph',
+                acceleration: '2.9 seconds',
+                dimensions: '4543mm × 1930mm × 1196mm',
+                clearance: '107mm',
+                fuel: '72 Liters'
+            }
+        };
+
+        function updateCarDetails(type, carId) {
+            if (carId) {
+                const car = carData[carId];
+                const prefix = type === 'lambo' ? 'lambo-' : 'comp-';
+                document.getElementById(prefix + 'engine').textContent = car.engine;
+                document.getElementById(prefix + 'power').textContent = car.power;
+                document.getElementById(prefix + 'torque').textContent = car.torque;
+                document.getElementById(prefix + 'transmission').textContent = car.transmission;
+                document.getElementById(prefix + 'topspeed').textContent = car.topspeed;
+                document.getElementById(prefix + 'acceleration').textContent = car.acceleration;
+                document.getElementById(prefix + 'dimensions').textContent = car.dimensions;
+                document.getElementById(prefix + 'clearance').textContent = car.clearance;
+                document.getElementById(prefix + 'fuel').textContent = car.fuel;
+            }
+        }
+
+        function toggleSpecs(id) {
+            const element = document.getElementById(id);
+            element.classList.toggle('show');
+            const button = element.nextElementSibling;
+            button.textContent = element.classList.contains('show') ? 'View Less' : 'View More';
+        }
+
+        document.getElementById('lambo-select').addEventListener('change', (e) => {
+            updateCarDetails('lambo', e.target.value);
+        });
+
+        document.getElementById('competitor-select').addEventListener('change', (e) => {
+            updateCarDetails('comp', e.target.value);
+        });
+    </script>
+</body>
+</html>

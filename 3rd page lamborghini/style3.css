@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 2px;
+    padding: 4px;
+    /* background-color: black; */
+    font-family: "Poppins", sans-serif;
+    /* font-weight: 700; */
+}
+
+body {
+    background-image: url("lamborghini3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: bottom;   */
+}
+
+.headline {
+    padding: 5px;
+    border: 2px solid gold;
+    color: black;
+    border-radius: 10PX;
+    background-color: whitesmoke;
+    text-decoration: none;
+    width: 90vw;
+    margin: auto;
+    font-weight: 600;
+
+
+}
+
+.wholecontent {
+    border: 3px solid white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 87vw;
+    /* height: 85vh; */
+    margin: auto;
+    margin-top: 1%;
+    background-color: rgba(0, 0, 0, 0.644);
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 400;
+}
+
+/* span{
+ display: flex;
+ flex-direction: column;
+    
+} */
+img {
+    width: 500px;
+}
+
+.img-table {
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-between;
+    align-items: center;
+    gap: -20px;
+
+
+}
+
+.img-table div {
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+ul {
+    font-weight: 600;
+}
+
+/* .wholecontent div{
+    margin-left: 5px;
+    margin-top: 8px;
+} */
+.headline:hover {
+    background-color: rgba(0, 0, 0, 0.637);
+    color: gold;
+    transform: scale(1.009);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+}
+
+
+h1 {
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 4cm;
+
+}
+
+.ferruicco {
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+
+}
+
+/* .imagetitle{
+    text-align: center;
+
+} */
+td {
+    color: white;
+    border: 1px solid gold;
+    border-radius: 3px;
+
+}
+
+.button {
+padding: 5px;
+border: 2px solid gold;
+color: black;
+border-radius: 10px;
+background-color: gold;
+text-decoration: none;
+}
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.637);
+    color: gold;
+    transform: scale(1.12);
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+}

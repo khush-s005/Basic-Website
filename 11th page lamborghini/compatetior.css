@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 2px;
+    padding: 5px;
+    font-family: "poppons", sans-serif;
+}
+body{
+    background-image: url("lamborghini4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.headline4{
+    padding: 5px;
+    border: 2px solid gold;
+    color: black;
+    border-radius: 10PX;
+    background-color: whitesmoke;
+    text-decoration: none;
+    width: 90vw;
+    margin: auto;
+    font-weight: 600;
+    text-align: center;
+}
+.headline4:hover{
+    background-color: rgba(0, 0, 0, 0.637);
+    color: whitesmoke;
+    transform: scale(1.009);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.box4{
+    border: 3px solid whitesmoke;
+    border-radius: 20px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 90vw;
+     height: 85vh; 
+    margin: auto;
+    margin-top: 1%;
+    background-color: rgba(0, 0, 0, 0.644);
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 400;
+}
+.lafarari{
+    background-image: url("laferrari.jpg");
+    background-size: cover;
+    height: 400px;
+    width: 600px;
+    color: whitesmoke;
+    border:  1px solid rgb(219, 217, 217);
+    box-sizing: border-box;
+    border-radius: 6px;
+
+}
+.porsche{
+    background-image: url("porsche.jpg");
+    background-size: cover;
+    height: 300px;
+    width: 600px;
+    color: whitesmoke;
+    border:  1px solid rgb(219, 217, 217);
+    box-sizing: border-box;
+    border-radius: 6px;
+
+}
+.urus-button{
+    display: flex;
+}
+
+.mustang{
+    background-image: url("mustang.jpg");
+    background-size: cover;
+    height: 300px;
+    width: 600px;
+    color: whitesmoke;
+    border:  1px solid whitesmoke;
+    box-sizing: border-box;
+    border-radius: 6px;
+   
+
+}
+.huracan{
+    background-image: url("huracan4.jpg");
+    background-size: cover;
+    height: 400px;
+    width: 600px;
+    color: whitesmoke;
+    border:  1px solid whitesmoke;
+    box-sizing: border-box;
+    border-radius: 6px;
+   
+}
+.gallardo{
+    background-image: url("Gallardo4.jpg");
+    background-size: cover;
+    height: 300px;
+    width: 600px;
+    color: whitesmoke;
+    border:  1px solid whitesmoke;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+.miura{
+    background-image: url("Miura4.jpg");
+    background-size: cover;
+    height: 300px;
+    width: 600px;
+    color: whitesmoke;
+    border:  1px solid whitesmoke;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+img{
+    margin: 2px;
+    padding: 2px;
+    border: 1px solid whitesmoke;
+    border-radius: 2px;
+}
+a{
+    color: whitesmoke;
+    border: 1px solid gold;
+    background-color: black;
+    border-radius: 4px;
+}
+a:hover{
+    background-color: rgba(0, 0, 0, 0.637);
+    color: black;
+    background-color: whitesmoke;
+    transform: scale(1.009);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
